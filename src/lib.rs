@@ -79,7 +79,7 @@ macro_rules! gc_shadowstack {
             }
         }
         /// Trait that should be implemented for all types that could be rooted.
-        /// In simple cases `impl<T: TRace> Rootable for T {}` is enough.
+        /// In simple cases `impl<T: Traceable> Rootable for T {}` is enough.
         pub trait $rootable: $traceable {}
         $crate::paste::paste!(
             impl [<Raw $name Entry>] {
@@ -138,8 +138,8 @@ macro_rules! gc_shadowstack {
             }
 
             impl<'a, 'b, T: $rootable> $rooted<'a, 'b, T> {
-                /// Create `Rooted<T>` instance from pinned reference. Note that this should be used only
-                /// inside `root!` macro and users of Starlight API should not use this function.
+                /// Create rooted value from pinned reference. Note that this function must be used only
+                /// inside `$letroot` macro.
                 pub unsafe fn construct(pin: core::pin::Pin<&'a mut [< $name Internal>]<'b, T>>) -> Self {
                     Self { pinned: pin }
                 }
@@ -257,4 +257,17 @@ macro_rules! gc_shadowstack {
             }
         );
     };
+}
+
+pub mod dummy {
+
+    pub trait Traceable {}
+    gc_shadowstack!(
+        ShadowStack,
+        Traceable,
+        Rootable,
+        Rooted,
+        Handle,
+        dummy_letroot
+    );
 }
