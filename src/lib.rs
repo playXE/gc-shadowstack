@@ -259,8 +259,9 @@ macro_rules! gc_shadowstack {
     };
 }
 
+#[cfg(doc)]
 pub mod dummy {
-
+    //! Dummy module that generates shadow stack type to see documentation of all APIs provided.
     pub trait Traceable {}
     gc_shadowstack!(
         ShadowStack,
