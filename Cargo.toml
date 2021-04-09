@@ -1,9 +1,13 @@
 [package]
 name = "gc-shadowstack"
 version = "0.1.0"
-authors = ["playX <gtashnik11@gmail.com>"]
+authors = ["Adel Prokurov <gtashnik11@gmail.com>"]
 edition = "2018"
-
+description = "Shadow stack algorithm implementation for GC object rooting"
+repository = "https://github.com/playXE/gc-shadowstack"
+readme = "README.md"
+keywords = ["gc", "shadowstack", "rooting"]
+license = "MIT"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
