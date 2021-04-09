@@ -14,12 +14,12 @@ pub use paste;
 /// Instatiate shadow stack type that can work with your GC API.
 ///
 /// # Paramters
-/// `$name`: Shadow stack type name itself.
-/// `$traceable`: Your GC traceable trait that is implemented for all types that can be traced.
-/// `$rootable`: New trait name that should be implemented for rooted values.
-/// `$rooted`: Type of rooted value.
-/// `$handle`: Type of reference to rooted value. This creates `$handle` and `$handle Mut` types.
-/// `%letroot`: Name that is given to macro that will instantiate rooted values.
+/// -`$name`: Shadow stack type name itself.
+/// -`$traceable`: Your GC traceable trait that is implemented for all types that can be traced.
+/// -`$rootable`: New trait name that should be implemented for rooted values.
+/// -`$rooted`: Type of rooted value.
+/// -`$handle`: Type of reference to rooted value. This creates `$handle` and `$handle Mut` types.
+/// -`%letroot`: Name that is given to macro that will instantiate rooted values.
 ///
 #[macro_export]
 macro_rules! gc_shadowstack {

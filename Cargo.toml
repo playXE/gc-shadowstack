@@ -1,6 +1,6 @@
 [package]
 name = "gc-shadowstack"
-version = "0.1.0"
+version = "1.0.0"
 authors = ["Adel Prokurov <gtashnik11@gmail.com>"]
 edition = "2018"
 description = "Shadow stack algorithm implementation for GC object rooting"
